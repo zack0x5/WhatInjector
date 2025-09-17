@@ -10,11 +10,11 @@
   *https://www.rotta.rocks/offensive-tool-development/evading-edr/wrapping-ntapi-functions*</br>
   *https://www.crow.rip/nest/mal/dev/inject/ntapi-injection/complete-ntapi-implementation*</br>
 * **Técnica HalosGate**</br>
-  *HalosGate é uma evolução da técnica HellsGate, criada com o objetivo de recuperar números de syscall (SSNs) mesmo quando um EDR intercepta certas funções. Ele itera sobre as tabelas de exportação procurando a função alvo; uma vez encontrada, verifica os primeiros bytes para ver se o EDR está fazendo hook. Se estiver, tenta deshookar; caso contrário, recupera o SSN e retorna.*</br>
+  *HalosGate é uma evolução da técnica HellsGate, criada pra recuperar números de syscall (SSNs) mesmo quando um EDR intercepta certas funções. Ela itera sobre as tabelas de exportação procurando a função alvo; uma vez encontrada, verifica os primeiros bytes para ver se o EDR está fazendo hook. Se estiver, tenta deshookar; caso contrário, recupera o SSN e retorna.*</br>
   *https://github.com/boku7/AsmHalosGate*</br>
   *https://redops.at/en/blog/exploring-hells-gate*</br>
 * **Syscalls Indiretas**</br>
-  *Syscalls indiretas também são uma evolução de uma técnica conhecida como Direct Syscalls. Esta surgiu para resolver o problema das Direct Syscalls: ao usar Direct Syscalls, o programa chama a função diretamente via syscall. Como isso é incomum para um programa legítimo, EDRs/AVs detectam e geram um IOC toda vez que um programa executa um syscall diretamente. Por isso surgiram as Syscalls Indiretas — uma técnica que prepara os parâmetros no programa, mas executa o syscall através da função no ntdll.*</br>
+  *Syscalls indiretas também são uma evolução de uma técnica conhecida como Direct Syscalls. Essa surgiu para resolver o problema das Direct Syscalls: ao usar Direct Syscalls, o programa chamava a função diretamente via syscall. Como isso é incomum para um programa legítimo, EDRs/AVs detectam e geram um IOC toda vez que um programa executa um syscall diretamente. Por isso surgiram as Syscalls Indiretas — uma técnica que prepara os parâmetros no programa, mas executa o syscall através da função no ntdll.*</br>
   *https://redops.at/en/blog/direct-syscalls-vs-indirect-syscalls*</br>
   *https://d01a.github.io/syscalls/*</br>
 * **Vectored Exception Handling**</br>
