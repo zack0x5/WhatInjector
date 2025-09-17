@@ -6,7 +6,7 @@
 
 **Técnicas**  
 * **Funções NTAPI**</br>
-  *Funções NTAPI são funções internas que fazem parte do ntdll.dll e são pouco documentadas no Windows. As funções que usamos, como VirtualAlloc, ReadFile e OpenProcess, são apenas wrappers que preparam os parâmetros para chamar essas funções NTAPI.*</br>
+  *Funções NTAPI são funções internas que fazem parte do ntdll.dll e são pouco documentadas no Windows. As funções que são comuns da WINAPI, como VirtualAlloc, ReadFile e OpenProcess, são apenas wrappers que preparam os parâmetros para chamar essas funções NTAPI.*</br>
   *https://www.rotta.rocks/offensive-tool-development/evading-edr/wrapping-ntapi-functions*</br>
   *https://www.crow.rip/nest/mal/dev/inject/ntapi-injection/complete-ntapi-implementation*</br>
 * **Técnica HalosGate**</br>
