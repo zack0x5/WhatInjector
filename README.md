@@ -8,6 +8,8 @@
 **Techniques** 
 * **NTAPI Functions**</br>
   *NTAPI functions are internal functions that are part of ntdll.dll and are poorly documented in Windows. The functions we use, like VirtualAlloc, ReadFile, and OpenProcess, are just wrappers that prepare the parameters to call these NTAPI functions.*
+  *https://www.rotta.rocks/offensive-tool-development/evading-edr/wrapping-ntapi-functions*</br>
+  *https://www.crow.rip/nest/mal/dev/inject/ntapi-injection/complete-ntapi-implementation*</br>
 * **HalosGate Technique**</br>
   *HalosGate is an evolution of the HellsGate technique, created with the goal of retrieving syscall numbers (SSNs) even when an EDR hooks certain functions. It iterates over the export tables looking for the target function; once found, it checks the first bytes to see if the EDR is hooking it. If it is, it tries to unhook it; if not, it retrieves the SSN and returns it.*</br>
   *https://github.com/boku7/AsmHalosGate*</br>*https://redops.at/en/blog/exploring-hells-gate*</br>
