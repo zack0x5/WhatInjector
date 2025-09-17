@@ -1,20 +1,20 @@
-
 # WhatInjector
 
 <img src=img/8bit.gif/>
 
 *WhatInjector is a project I made with some cool tricks and techniques to bypass AVs and maybe even some EDRs*
 
-**Techniques** 
+**Techniques**  
 * **NTAPI Functions**</br>
-  *NTAPI functions are internal functions that are part of ntdll.dll and are poorly documented in Windows. The functions we use, like VirtualAlloc, ReadFile, and OpenProcess, are just wrappers that prepare the parameters to call these NTAPI functions.*</br>
+  *NTAPI functions are internal functions that are part of ntdll.dll and are poorly documented in Windows. Common WINAPI functions like VirtualAlloc, ReadFile, and OpenProcess are just wrappers that prepare the parameters to call these NTAPI functions.*</br>
   *https://www.rotta.rocks/offensive-tool-development/evading-edr/wrapping-ntapi-functions*</br>
   *https://www.crow.rip/nest/mal/dev/inject/ntapi-injection/complete-ntapi-implementation*</br>
 * **HalosGate Technique**</br>
-  *HalosGate is an evolution of the HellsGate technique, created with the goal of retrieving syscall numbers (SSNs) even when an EDR hooks certain functions. It iterates over the export tables looking for the target function; once found, it checks the first bytes to see if the EDR is hooking it. If it is, it tries to unhook it; if not, it retrieves the SSN and returns it.*</br>
-  *https://github.com/boku7/AsmHalosGate*</br>*https://redops.at/en/blog/exploring-hells-gate*</br>
+  *HalosGate is an evolution of the HellsGate technique, created to retrieve syscall numbers (SSNs) even when an EDR hooks certain functions. It iterates over the export tables looking for the target function; once found, it checks the first bytes to see if the EDR is hooking it. If it is, it tries to unhook it; otherwise, it retrieves the SSN and returns it.*</br>
+  *https://github.com/boku7/AsmHalosGate*</br>
+  *https://redops.at/en/blog/exploring-hells-gate*</br>
 * **Indirect Syscalls**</br>
-  *Indirect syscalls are also an evolution of a technique known as Direct Syscalls. This was a way to solve the problem that Direct Syscalls had: when using Direct Syscalls, the program calls the function directly via the syscall. Since this is somewhat unusual for a legitimate program, EDRs/AVs would detect it and generate an IOC every time a program executes a syscall directly. That’s why Indirect Syscalls emerged—a technique that prepares the parameters in the program but executes the syscall through the function in ntdll. :)*</br>
+  *Indirect syscalls are also an evolution of a technique known as Direct Syscalls. This emerged to solve the problem with Direct Syscalls: when using Direct Syscalls, the program calls the function directly via syscall. Since this is unusual for a legitimate program, EDRs/AVs detect it and generate an IOC every time a program executes a syscall directly. That’s why Indirect Syscalls were created — a technique that prepares the parameters in the program but executes the syscall through the function in ntdll.*</br>
   *https://redops.at/en/blog/direct-syscalls-vs-indirect-syscalls*</br>
   *https://d01a.github.io/syscalls/*</br>
 * **Vectored Exception Handling**</br>
